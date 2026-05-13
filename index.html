@@ -1,29 +1,51 @@
 <!doctype html>
 <html lang="pt-BR">
   <head>
-    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style/style.css" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="script/script.js" defer></script>
     <title>Academic Hub</title>
   </head>
   <body>
-    <header class="header">
-      <div>Academic Hub</div>
-      <div>
-        <input type="text" placeholder="Pesquisar..." />
+    <header class="app-header">
+      <div class="brand">
+        <h1>Academic Hub</h1>
+        <p>Sua plataforma de curadoria e revisão espaçada</p>
       </div>
-      <button>Novo Recurso</button>
+      <div class="header-actions">
+        <button
+          id="themeToggle"
+          class="btn-primary"
+          aria-label="Alternar Tema Escuro"
+        >
+          Modo Claro
+        </button>
+      </div>
     </header>
-    <div>
-      <aside>
-        <div>Categorias</div>
-      </aside>
-      <main>
-        <section></section>
-        <section></section>
-      </main>
-    </div>
-
-    <script src="main.js"></script>
+    <main class="container">
+      <section class="search-section" aria-label="Pesquisa">
+        <div class="search-container">
+          <input
+            type="text"
+            placeholder="Buscar por assunto"
+            aria-label="Campo de pesquisa"
+          />
+        </div>
+      </section>
+      <article class="flashcard">
+        <span class="flashcard-category"> Arquitetura CSS </span>
+        <h2 class="flashcard-question">Qual é a função do Flexbox no CSS?</h2>
+        <button class="btn-primary" aria-label="Mostrar resposta">
+          Mostrar Resposta
+        </button>
+      </article>
+    </main>
   </body>
 </html>
