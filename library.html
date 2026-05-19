@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Academic Hub</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style/library.css" />
+
+    <script src="script/darkMode.js" defer></script>
+    <script src="script/init.js" defer></script>
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="brand">
+        <h1>Academic Hub</h1>
+        <p>Biblioteca de Curadoria e Revisao</p>
+      </div>
+      <div class="header-actions">
+        <button
+          id="themeToggle"
+          class="btn-primary"
+          aria-label="Alternar Tema"
+          onclick="toggleTheme()"
+        >
+          Modo Escuro
+        </button>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="search-section" aria-label="Pesquisa">
+        <div class="search-container">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Buscar por assunto ou palavra-chave..."
+            aria-label="Campo de pesquisa"
+          />
+        </div>
+      </section>
+
+      <section class="library-section" aria-label="Acervo de Cards">
+        <div id="flashcards-grid" class="cards-grid"></div>
+      </section>
+    </main>
+  </body>
+</html>
