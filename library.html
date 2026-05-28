@@ -16,6 +16,7 @@
 
     <script src="script/darkMode.js" defer></script>
     <script src="script/init.js" defer></script>
+    <script src="script/script.js" defer></script>
   </head>
   <body>
     <header class="app-header">
@@ -43,12 +44,15 @@
             id="searchInput"
             placeholder="Buscar por assunto ou palavra-chave..."
             aria-label="Campo de pesquisa"
+            oninput="searchCards(event.target.value)"
           />
         </div>
       </section>
 
       <section class="library-section" aria-label="Acervo de Cards">
-        <div id="flashcards-grid" class="cards-grid"></div>
+        <div id="flashcards-grid" class="cards-grid">
+          <!-- Cards são injetados pelo init.js -->
+        </div>
       </section>
     </main>
   </body>
