@@ -137,24 +137,43 @@ p {
   letter-spacing: 1px;
 }
 
-/* 5. ESTRUTURA DO CONTEUDO PRINCIPAL */
-.container {
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto; /* Centraliza a coluna principal */
-  padding: 3rem 1rem;
+.app-header .btn-menu
+{
+  background-color: transparent;
+  border: none;
+  border-radius: var(--radius-md);
+  display: none;
+  font-size: 1.5rem;
+  color: var(--accent);
+  padding: 5px;
+  cursor: pointer;
+
+  transition:
+    background-color var(--trans-medium),
+    transform var(--trans-medium),
+    box-shadow var(--trans-medium);
 }
 
+.btn-menu:hover
+{
+  transform: translateY(-2px);
+}
+
+
+/*5 SEARCH CONTAINER*/
 .search-container {
   display: flex;
   align-items: center;
   background-color: var(--bg-secondary);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  padding: 0.8rem 1rem;
-  margin-bottom: 2.5rem;
-  transition: all var(--trans-fast);
+  padding: 0.8rem 1.2rem;
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
   box-shadow: var(--shadow-card);
+  transition: all var(--trans-fast);
 }
 
 .search-container:focus-within {
@@ -167,47 +186,9 @@ p {
   outline: none;
   width: 100%;
   font-family: var(--font-body);
-  font-size: 1.05rem;
+  font-size: 1rem;
   color: var(--text-primary);
   background: transparent;
-}
-
-/* 7. COMPONENTE FLASHCARD */
-.flashcard {
-  background-color: var(--bg-secondary);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 2.5rem 2rem;
-  box-shadow: var(--shadow-card);
-  margin-bottom: 2rem;
-  text-align: center;
-  transition:
-    background-color var(--trans-medium),
-    border-color var(--trans-medium);
-}
-
-.flashcard-category {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--accent);
-  font-weight: 600;
-  margin-bottom: 1.5rem;
-  display: inline-block;
-  background-color: var(--bg-tertiary);
-  padding: 0.4rem 0.8rem;
-  border-radius: var(--radius-md);
-  display: flex;
-  align-items: start;
-  justify-content: start;
-  width: fit-content;
-}
-
-.flashcard-question {
-  font-size: 1.6rem;
-  line-height: 1.4;
-  margin-bottom: 2rem;
-  color: var(--text-primary);
 }
 
 /* 6. ELEMENTOS DE INTERFACE (Botao e Inputs) */
@@ -238,16 +219,61 @@ p {
   transform: translateY(0);
   box-shadow: none;
 }
-.btn-primary:focus-visible {
+.btn-primary:focus-visible, .btn-menu:focus-visible {
   outline: 2px solid var(--accent-hover);
   outline-offset: 2px;
 }
-/* Responsividade Basica */
-/* @media (max-width: 600px) {
+
+a {
+  text-decoration: none;
+}
+@media(max-width: 840px)
+{
   .app-header {
+    padding: 1.5rem 1.2rem;
+  }
+}
+@media(max-width: 768px)
+{
+  .app-header {
+    padding: 1rem 1.2rem;
+  }
+
+  .header-actions
+  {
+    display: none;
+  }
+  .header-actions.active
+  {
+    display: flex;
+    position:fixed;
     flex-direction: column;
     gap: 1rem;
-    padding: 1.5rem;
-    text-align: center;
+    top: 9%;
+    right: 7%;
+    
   }
-} */
+  .app-header .btn-menu
+  {
+    display: block;
+  }
+  .app-header .brand p
+  {
+    font-size: 0.8rem;
+  }
+
+
+  .container {
+    padding: 2rem 1rem;
+  }
+
+}
+
+@media(max-width: 480px)
+{
+  .app-header .brand p
+  {
+    display: none;
+  }
+
+}
