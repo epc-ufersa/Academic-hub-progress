@@ -154,12 +154,6 @@ p {
     box-shadow var(--trans-medium);
 }
 
-.btn-menu:hover
-{
-  transform: translateY(-2px);
-}
-
-
 /*5 SEARCH CONTAINER*/
 .search-container {
   display: flex;
@@ -251,7 +245,14 @@ a {
     gap: 1rem;
     top: 9%;
     right: 7%;
-    
+    background-color: var(--bg-secondary);
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    border: solid 1px var(--border-medium);
+  }
+  .header-actions .btn-primary:hover
+  {
+      transform: translateY(0);
   }
   .app-header .btn-menu
   {
