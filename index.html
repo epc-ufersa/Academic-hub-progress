@@ -7,12 +7,15 @@
       href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600&family=Inter:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style/style.css" />
+    <link rel="stylesheet" href="style/index.css">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="module" src="script/script.js" defer></script>
     <script type="module" src="script/darkMode.js" defer></script>
     <script type="module" src="script/init.js" defer></script>
+    <script type="module" src="script/menu.js" defer></script>
     <title>Academic Hub</title>
   </head>
   <body>
@@ -21,7 +24,7 @@
         <h1>Academic Hub</h1>
         <p>Sua plataforma de curadoria e revisão espaçada</p>
       </div>
-      <div class="header-actions">
+      <div class="header-actions" id="header-actions">
         <a
           class="btn-primary"
           href="library.html"
@@ -29,16 +32,16 @@
         >
           Nova Biblioteca
         </a>
-        <button
-          id="themeToggle"
-          class="btn-primary"
-          aria-label="Alternar Tema Escuro"
-          onclick="toggleTheme()"
-        >
+        <button id="themeToggle" class="btn-primary" aria-label="Alternar Tema Escuro" onclick="toggleTheme()">
           Modo Claro
         </button>
       </div>
+
+      <button id="btn-menu" class="btn-menu" aria-label="Mostrar ações" onclick="toggleMenu()">
+        <i class="fa-solid fa-bars"></i>
+      </button>
     </header>
+
     <main class="container">
       <section class="search-section" aria-label="Pesquisa">
         <div class="search-container">

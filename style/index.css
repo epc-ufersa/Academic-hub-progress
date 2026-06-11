@@ -1,0 +1,72 @@
+/* 1. ESTRUTURA DO CONTEUDO PRINCIPAL */
+.container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto; /* Centraliza a coluna principal */
+  padding: 3rem 1rem;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 0.8rem 1rem;
+  margin-bottom: 2.5rem;
+  transition: all var(--trans-fast);
+  box-shadow: var(--shadow-card);
+}
+
+.search-container:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.search-container input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: var(--text-primary);
+  background: transparent;
+}
+
+/* 2. COMPONENTE FLASHCARD */
+.flashcard {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 2.5rem 2rem;
+  box-shadow: var(--shadow-card);
+  margin-bottom: 2rem;
+  text-align: center;
+  transition:
+    background-color var(--trans-medium),
+    border-color var(--trans-medium);
+}
+
+.flashcard-category {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  background-color: var(--bg-tertiary);
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  width: fit-content;
+}
+
+.flashcard-question {
+  font-size: 1.6rem;
+  line-height: 1.4;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+}

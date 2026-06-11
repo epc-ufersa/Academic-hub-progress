@@ -11,12 +11,15 @@
       href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600&family=Inter:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <link rel="stylesheet" href="style/library.css" />
+    <link rel="stylesheet" href="style/style.css">
 
     <script type="module" src="script/darkMode.js" defer></script>
     <script type="module" src="script/init.js" defer></script>
     <script type="module" src="script/script.js" defer></script>
+    <script type="module" src="script/menu.js" defer></script>
   </head>
   <body>
     <header class="app-header">
@@ -24,16 +27,23 @@
         <h1>Academic Hub</h1>
         <p>Biblioteca de Curadoria e Revisao</p>
       </div>
-      <div class="header-actions">
-        <button
-          id="themeToggle"
+      <div class="header-actions" id="header-actions">
+        <a
           class="btn-primary"
-          aria-label="Alternar Tema"
-          onclick="toggleTheme()"
+          href="index.html"
+          aria-label="Voltar para página inicial"
+        >
+          Página Inicial
+        </a>
+        <button id="themeToggle" class="btn-primary" aria-label="Alternar Tema" onclick="toggleTheme()"
         >
           Modo Escuro
         </button>
       </div>
+
+      <button id="btn-menu" class="btn-menu" aria-label="Mostrar ações" onclick="toggleMenu()">
+        <i class="fa-solid fa-bars"></i>
+      </button>
     </header>
 
     <main class="container">
