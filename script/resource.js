@@ -50,7 +50,6 @@ const RESOURCE_ORIGINS = {
 };
 
 const JSON_SOURCE_URL = "./data/flashcards.json";
-const LOCAL_STORAGE_KEY = "flashcards";
 
 const getCardsFromJson = async () => {
   try {
@@ -60,41 +59,20 @@ const getCardsFromJson = async () => {
     }
 
     const data = await response.json();
-    return normalizeCardsArray(data);
+    if (!Array.isArray(data)) {
+      return [];
+    }
+
+    return data;
   } catch (error) {
     console.warn("Falha ao carregar fonte JSON:", error);
     return [];
   }
 };
 
-const getCardsFromLocalStorage = () => {
-  try {
-    if (typeof localStorage === "undefined") {
-      return [];
-    }
-
-    const rawValue = localStorage.getItem(LOCAL_STORAGE_KEY);
-    if (!rawValue) {
-      return [];
-    }
-
-    return normalizeCardsArray(JSON.parse(rawValue));
-  } catch (error) {
-    console.warn("Falha ao carregar fonte localStorage:", error);
-    return [];
-  }
-};
-
 const getCards = async () => {
-  if (currentOrigin === RESOURCE_ORIGINS.VARIABLE) {
-    return normalizeCardsArray(BASE_CARDS);
-  }
-
-  if (currentOrigin === RESOURCE_ORIGINS.LOCAL_STORAGE) {
-    return getCardsFromLocalStorage();
-  }
-
-  return getCardsFromJson();
+  const jsonCards = await getCardsFromJson();
+  return jsonCards.length ? jsonCards : BASE_CARDS;
 };
 
-export { BASE_CARDS, RESOURCE_ORIGINS, getCards, setCardsOrigin };
+export { BASE_CARDS, RESOURCE_ORIGINS, getCards };
