@@ -1,14 +1,53 @@
-const cards = document.querySelectorAll(".flashcard-item");
+import { getCards } from "./resource.js";
 
-const searchCards = (query) => {
-  const flashcardsGrid = document.getElementById("flashcards-grid");
+const getCardsGridElement = () => {
+  return document.getElementById("flashcards-grid");
+};
 
-  const filteredCards = Array.from(cards).filter((card) => {
-    const question = card.querySelector(".question").textContent.toLowerCase();
-    return question.includes(query.toLowerCase());
+const toCardMarkup = (card) => {
+  return `
+    <article class="flashcard-item" data-id="${card.id}">
+      <span class="category">${card.categoria ?? "Sem categoria"}</span>
+      <h2 class="question">${card.pergunta}</h2>
+      <p class="answer-preview">${card.resposta}</p>
+    </article>
+  `;
+};
+
+const renderCards = (cards) => {
+  const flashcardsGrid = getCardsGridElement();
+
+  if (!flashcardsGrid) {
+    return;
+  }
+
+  flashcardsGrid.innerHTML = cards.map(toCardMarkup).join("");
+};
+
+const searchCards = async (query = "") => {
+  const allCards = await getCards();
+  const normalizedQuery = query.trim().toLowerCase();
+
+  if (!normalizedQuery) {
+    renderCards(allCards);
+    return;
+  }
+
+  const filteredCards = allCards.filter((card) => {
+    const pergunta = card.pergunta.toLowerCase();
+    const resposta = card.resposta.toLowerCase();
+    const categoria = (card.categoria ?? "").toLowerCase();
+
+    return (
+      pergunta.includes(normalizedQuery) ||
+      resposta.includes(normalizedQuery) ||
+      categoria.includes(normalizedQuery)
+    );
   });
 
-  flashcardsGrid.innerHTML = filteredCards
-    .map((card) => card.outerHTML)
-    .join("");
+  renderCards(filteredCards);
 };
+
+window.searchCards = searchCards;
+
+export { renderCards, searchCards };
