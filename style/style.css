@@ -45,6 +45,7 @@
 }
 
 /* 2. CLASSE MODIFICADORA DE ESTADO (Dark Mode) */
+html.dark-mode,
 body.dark-mode {
   --bg-page: #0a0a0a;
   --bg-primary: #121212;
