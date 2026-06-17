@@ -120,7 +120,7 @@ p {
   /* Mantendo o header fixo no topo (opcional para UX) */
   position: sticky;
   top: 0;
-  /* z-index: 100; */
+  z-index: 2;
 }
 
 .app-header .brand h1 {
@@ -136,7 +136,12 @@ p {
   text-transform: uppercase;
   letter-spacing: 1px;
 }
-
+.app-header .header-actions
+{
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+}
 .app-header .btn-menu
 {
   background-color: transparent;
@@ -197,6 +202,7 @@ p {
   border: none;
   border-radius: var(--radius-lg);
   cursor: pointer;
+  max-height: 2.3rem;
 
   transition:
     background-color var(--trans-medium),
@@ -219,6 +225,7 @@ p {
 }
 
 a {
+  line-height: 1.05rem;
   text-decoration: none;
 }
 @media(max-width: 840px)
